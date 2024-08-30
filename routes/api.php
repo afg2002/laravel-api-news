@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth:sanctum');
 
 Route::apiResource('berita', BeritaController::class)->middleware(JwtMiddleware::class);
-Route::apiResource('kategori', KategoriBeritaController::class);
-Route::apiResource('penulis', PenulisController::class);
-Route::apiResource('artis', ArtisController::class);
+Route::apiResource('kategori', KategoriBeritaController::class)->middleware(JwtMiddleware::class);
+Route::apiResource('penulis', PenulisController::class)->middleware(JwtMiddleware::class);
+Route::apiResource('artis', ArtisController::class)->middleware(JwtMiddleware::class);
 
 Route::post('/login', [AuthController::class, 'login']);
 
